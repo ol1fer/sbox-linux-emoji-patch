@@ -30,10 +30,10 @@ git clone https://github.com/ol1fer/sbox-linux-emoji-patch.git
 cd sbox-linux-emoji-patch
 ```
 
-3. Decompile s&box's bundled RichTextKit. **Replace the path with your sbox install path/dll path if it's different**:
+3. Decompile s&box's bundled RichTextKit. **Replace the path with your sbox install/dll AND your ilspycmd location. Mine defaulted to the below so yours will probably be there too but mine didn't install to path so I have to reference it directly.**:
 
 ```
-ilspycmd ~/.steam/steam/steamapps/common/sbox/bin/managed/Topten.RichTextKit.dll -p -o build
+~/.dotnet/tools/ilspycmd ~/.steam/steam/steamapps/common/sbox/bin/managed/Topten.RichTextKit.dll -p -o build
 ```
 
 4. Apply the patches and copy in the project files:
