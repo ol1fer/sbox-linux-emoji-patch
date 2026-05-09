@@ -1,0 +1,20 @@
+--- a/Topten.RichTextKit/FontRun.cs
++++ b/Topten.RichTextKit/FontRun.cs
+@@ -509,8 +509,16 @@
+ 		if (RunKind == FontRunKind.Tabs || RunKind == FontRunKind.TrailingWhitespace)
+ 		{
+ 			return;
+ 		}
++		if (Glyphs.Length == 0 || Glyphs.Underlying == null)
++		{
++			return;
++		}
+ 		_textBlob = null;
+ 		float glyphVOffset = CreateTextBlob(ctx);
++		if (_textBlob == null)
++		{
++			return;
++		}
+ 		using SKPaint sKPaint = new SKPaint();
+ 		sKPaint.Color = Style.TextColor;
+ 		sKPaint.Shader = ctx.Shader;

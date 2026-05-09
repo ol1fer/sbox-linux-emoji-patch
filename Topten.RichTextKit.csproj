@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <AssemblyName>Topten.RichTextKit</AssemblyName>
+    <GenerateAssemblyInfo>False</GenerateAssemblyInfo>
+    <TargetFramework>net10.0</TargetFramework>
+    <RootNamespace />
+    <LangVersion>14.0</LangVersion>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+    <CheckForOverflowUnderflow>False</CheckForOverflowUnderflow>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <CopyLocalLockFileAssemblies>false</CopyLocalLockFileAssemblies>
+    <Nullable>disable</Nullable>
+  </PropertyGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Topten.RichTextKit.Resources.BidiClasses.trie" LogicalName="Topten.RichTextKit.Resources.BidiClasses.trie" />
+    <EmbeddedResource Include="Topten.RichTextKit.Resources.GraphemeClusterClasses.trie" LogicalName="Topten.RichTextKit.Resources.GraphemeClusterClasses.trie" />
+    <EmbeddedResource Include="Topten.RichTextKit.Resources.LineBreakClasses.trie" LogicalName="Topten.RichTextKit.Resources.LineBreakClasses.trie" />
+    <EmbeddedResource Include="Topten.RichTextKit.Resources.WordBoundaryClasses.trie" LogicalName="Topten.RichTextKit.Resources.WordBoundaryClasses.trie" />
+    <EmbeddedResource Include="W10Emoji.ttf" LogicalName="Topten.RichTextKit.Resources.W10Emoji.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="SkiaSharp">
+      <HintPath>$(SboxBinManaged)/SkiaSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="HarfBuzzSharp">
+      <HintPath>$(SboxBinManaged)/HarfBuzzSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Sandbox.System">
+      <HintPath>$(SboxBinManaged)/Sandbox.System.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,13 @@
+--- a/Topten.RichTextKit.Utils/Utf32Utils.cs
++++ b/Topten.RichTextKit.Utils/Utf32Utils.cs
+@@ -19,9 +19,8 @@
+ 		{
+ 			int byteCount = Encoding.UTF32.GetByteCount(chars, str.Length);
+ 			int[] array = new int[byteCount / 4];
+-			fixed (int[] array2 = array)
++			fixed (int* bytes = array)
+ 			{
+-				int* bytes = (int*)((array != null && array2.Length != 0) ? Unsafe.AsPointer(ref array2[0]) : null);
+ 				Encoding.UTF32.GetBytes(chars, str.Length, (byte*)bytes, byteCount);
+ 				return array;
+ 			}
