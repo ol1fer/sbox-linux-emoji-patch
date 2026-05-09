@@ -52,7 +52,7 @@ cp W10Emoji.ttf build/
 dotnet build build/Topten.RichTextKit.csproj -c Release -p:SboxBinManaged=/home/oliver/.steam/steam/steamapps/common/sbox/bin/managed
 ```
 
-6. Back up the original DLL and replace it with the patched one (adjust your locations below or just do it manually in your file manager and copy the built dll to the managed folder):
+6. Back up the original DLL and replace it with the patched one (adjust your locations below or just do it manually in your file manager and copy the built dll to the managed folder). Your new DLL is at `sbox-linux-emoji-patch/build/bin/Release/Topten.RichTextKit.dll`:
 
 ```
 cp ~/.steam/steam/steamapps/common/sbox/bin/managed/Topten.RichTextKit.dll ~/.steam/steam/steamapps/common/sbox/bin/managed/Topten.RichTextKit.dll.bak
