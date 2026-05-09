@@ -5,10 +5,10 @@ Context: https://github.com/Facepunch/sbox-public/issues/10779
 Prerequisites:
 - .NET 10 SDK
 - ilspycmd
-- git, patch
-- s&box installed
+- git & patch
+- s&box (lol)
 
-On Arch you can grab everything except ilspycmd and s&box (lol) with:
+On Arch you can grab everything except ilspycmd and s&box with:
 
 ```
 sudo pacman -S dotnet-sdk git patch
@@ -16,28 +16,27 @@ sudo pacman -S dotnet-sdk git patch
 
 On other distros find the equivalent for your package manager.
 
-1. Install .NET 10 SDK from https://dotnet.microsoft.com/download (skip if you used the pacman line above)
 
-2. Install ilspycmd:
+1. Install ilspycmd:
 
 ```
 dotnet tool install -g ilspycmd
 ```
 
-3. Clone this repo and cd into it:
+2. Clone this repo and cd into it:
 
 ```
 git clone https://github.com/ol1fer/sbox-linux-emoji-patch.git
 cd sbox-linux-emoji-patch
 ```
 
-4. Decompile s&box's bundled RichTextKit. Replace the path with your sbox install path if it's different:
+3. Decompile s&box's bundled RichTextKit. Replace the path with your sbox install path if it's different:
 
 ```
 ilspycmd ~/.steam/steam/steamapps/common/sbox/bin/managed/Topten.RichTextKit.dll -p -o build
 ```
 
-5. Apply the patches and copy in the project files:
+4. Apply the patches and copy in the project files:
 
 ```
 patch -p1 -d build < patches/Utf32Utils.patch
@@ -47,13 +46,13 @@ cp Topten.RichTextKit.csproj build/
 cp W10Emoji.ttf build/
 ```
 
-6. Build, passing the path to your sbox bin/managed folder:
+5. Build, passing the path to your sbox bin/managed folder:
 
 ```
 dotnet build build/Topten.RichTextKit.csproj -c Release -p:SboxBinManaged=/home/oliver/.steam/steam/steamapps/common/sbox/bin/managed
 ```
 
-7. Back up the original DLL and replace it with the patched one:
+6. Back up the original DLL and replace it with the patched one:
 
 ```
 cp ~/.steam/steam/steamapps/common/sbox/bin/managed/Topten.RichTextKit.dll ~/.steam/steam/steamapps/common/sbox/bin/managed/Topten.RichTextKit.dll.bak
